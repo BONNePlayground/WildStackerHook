@@ -1,0 +1,12 @@
+name: WildStackerHook
+main: lv.id.bonne.wildstackerhook.WildStackerHookAddon
+version: ${version}${build.number}
+api-version: ${bentobox.version}
+repository: 'BONNePlayground/WildStackerHook'
+metrics: true
+icon: CAULDRON
+
+authors:
+  - BONNe
+
+softdepend: AcidIsland, AOneBlock, BSkyBlock, CaveBlock, SkyGrid, Boxed

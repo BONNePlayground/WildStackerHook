@@ -1,0 +1,48 @@
+# Protection flags that are used in current addon.
+protection:
+  flags:
+    # This flag allows to switch which island member group can access go WildStacker GUI.
+    WILD_STACKER_GUI:
+      name: "WildStacker GUI Permission"
+      description: |-
+        &a Select who can access
+        &a WildStacker GUI.
+      icon:  WRITEN_BOOK
+    # This is a parent flag for WildStacker plugin.
+    WILD_STACKER:
+      name: "WildStacker"
+      description: |-
+        &a Toggles WildStacker plugin.
+      icon:  CAULDRON
+    # This flag allows toggle block stacking on island.
+    WILD_STACKER_BLOCKS:
+      name: "Block Stacking"
+      description: |-
+        &a Toggles block stacking
+        &a on this island.
+      hint: "Block stacking disabled"
+      icon: CAULDRON
+    # This flag allows toggle item stacking on island.
+    WILD_STACKER_ITEMS:
+      name: "Item Stacking"
+      description: |-
+        &a Toggles item stacking
+        &a on this island.
+      hint: "Item stacking disabled"
+      icon: POPPY
+    # This flag allows toggle entity stacking on island.
+    WILD_STACKER_ENTITIES:
+      name: "Entity Stacking"
+      description: |-
+        &a Toggles entity stacking
+        &a on this island.
+      hint: "Entity stacking disabled"
+      icon: SKELETON_SKULL
+    # This flag allows toggle spawner stacking on island.
+     WILD_STACKER_SPAWNERS:
+      name: "Spawner Stacking"
+      description: |-
+        &a Toggles spawner stacking
+        &a on this island.
+      hint: "Spawner stacking disabled"
+      icon: SPAWNER
