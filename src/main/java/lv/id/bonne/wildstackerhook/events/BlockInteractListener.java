@@ -51,7 +51,7 @@ public class BlockInteractListener extends FlagListener
         }
 
         if (event.getClickedBlock().getType() == Material.SPAWNER &&
-            WildStackerAPI.getStackedSpawner((CreatureSpawner) event.getClickedBlock()) == null)
+            WildStackerAPI.getStackedSpawner((CreatureSpawner) event.getClickedBlock().getState()) == null)
         {
             // Ignore non-stacked spawners.
             return;
