@@ -39,7 +39,7 @@ protection:
       hint: "Entity stacking disabled"
       icon: SKELETON_SKULL
     # This flag allows toggle spawner stacking on island.
-     WILD_STACKER_SPAWNERS:
+    WILD_STACKER_SPAWNERS:
       name: "Spawner Stacking"
       description: |-
         &a Toggles spawner stacking
