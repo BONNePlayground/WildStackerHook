@@ -15,6 +15,8 @@ This addon introduces multiple flags which allows to customize WildStacker plugi
 Added flags:
 
     - WILD_STACKER_GUI: Island Protection flag allows island owner to disable/enable access to WildStacker GUI's.
+    - WILD_STACKER_BARREL_ACCESS: Island Protection flag allows island owner to disable/enable access to WildStacker Stacked blocks.
+    - WILD_STACKER_SPAWNER_ACCESS: Island Protection flag allows island owner to disable/enable access to WildStacker Stacked spawners.
     - WILD_STACKER: Island Setting flag that allows to toggle all stackings with one button.
         - WILD_STACKER_ITEMS: Island Settings flag that allows toggle item stacking on island. 
         - WILD_STACKER_BLOCKS: Island Settings flag that allows toggle barrel stacking on island. 
