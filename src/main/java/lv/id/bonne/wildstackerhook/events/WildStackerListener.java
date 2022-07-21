@@ -26,7 +26,26 @@ public class WildStackerListener extends FlagListener
      * @param event BlockStackEvent.
      */
     @EventHandler(priority = EventPriority.LOW, ignoreCancelled = true)
-    public void onBlockStacking(BarrelStackEvent event)
+    public void onBlockStackingPlace(BarrelPlaceEvent event)
+    {
+        // Cancel stacking if BlockStacking is disabled in island settings.
+        if (!this.checkIsland(event,
+            null,
+            event.getBarrel().getLocation(),
+            WildStackerHookAddon.WILD_STACKER_BLOCKS))
+        {
+            this.noGo(event, WildStackerHookAddon.WILD_STACKER_BLOCKS);
+        }
+    }
+
+
+    /**
+     * Check if Blocks can be stacked.
+     *
+     * @param event BlockStackEvent.
+     */
+    @EventHandler(priority = EventPriority.LOW, ignoreCancelled = true)
+    public void onBlockStackingStack(BarrelStackEvent event)
     {
         // Cancel stacking if BlockStacking is disabled in island settings.
         if (!this.checkIsland(event,
@@ -86,6 +105,25 @@ public class WildStackerListener extends FlagListener
                 null,
                 event.getSpawner().getLocation(),
                 WildStackerHookAddon.WILD_STACKER_ENTITIES));
+        }
+    }
+
+
+    /**
+     * Check if Spawners can be stacked.
+     *
+     * @param event the event
+     */
+    @EventHandler(priority = EventPriority.LOW, ignoreCancelled = true)
+    public void onSpawnerStackingPlace(SpawnerPlaceEvent event)
+    {
+        // Cancel stacking if ItemStacking is disabled in island settings.
+        if (!this.checkIsland(event,
+            null,
+            event.getSpawner().getLocation(),
+            WildStackerHookAddon.WILD_STACKER_SPAWNERS))
+        {
+            this.noGo(event, WildStackerHookAddon.WILD_STACKER_SPAWNERS);
         }
     }
 

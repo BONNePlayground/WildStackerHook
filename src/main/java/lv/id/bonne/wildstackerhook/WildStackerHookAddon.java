@@ -52,6 +52,8 @@ public final class WildStackerHookAddon extends Addon
         this.registerListener(new BlockInteractListener());
         this.registerListener(new WildStackerListener());
         this.registerFlag(WILD_STACKER_GUI);
+        this.registerFlag(WILD_STACKER_BARREL_ACCESS);
+        this.registerFlag(WILD_STACKER_SPAWNER_ACCESS);
         this.registerFlag(WILD_STACKER);
         this.registerFlag(WILD_STACKER_ENTITIES);
         this.registerFlag(WILD_STACKER_ITEMS);
@@ -70,13 +72,39 @@ public final class WildStackerHookAddon extends Addon
 
     /**
      * This flag allows to change who have access to WildStackerGUI option. Owner can change it from
-     * member rank till owner rank. Default value is set to member.
+     * visitor rank till owner rank. Default value is set to member.
      */
     public final static Flag WILD_STACKER_GUI =
         new Flag.Builder("WILD_STACKER_GUI", Material.WRITTEN_BOOK).
             type(Flag.Type.PROTECTION).
             defaultRank(RanksManager.MEMBER_RANK).
             clickHandler(new CycleClick("WILD_STACKER_GUI",
+                RanksManager.VISITOR_RANK,
+                RanksManager.OWNER_RANK)).
+            build();
+
+    /**
+     * This flag allows to change who have access to WildStacker barrel items. Owner can change it from
+     * visitor rank till owner rank. Default value is set to member.
+     */
+    public final static Flag WILD_STACKER_BARREL_ACCESS =
+        new Flag.Builder("WILD_STACKER_BARREL_ACCESS", Material.BARREL).
+            type(Flag.Type.PROTECTION).
+            defaultRank(RanksManager.MEMBER_RANK).
+            clickHandler(new CycleClick("WILD_STACKER_BARREL_ACCESS",
+                RanksManager.VISITOR_RANK,
+                RanksManager.OWNER_RANK)).
+            build();
+
+    /**
+     * This flag allows to change who have access to WildStacker spawner items. Owner can change it from
+     * visitor rank till owner rank. Default value is set to member.
+     */
+    public final static Flag WILD_STACKER_SPAWNER_ACCESS =
+        new Flag.Builder("WILD_STACKER_SPAWNER_ACCESS", Material.SPAWNER).
+            type(Flag.Type.PROTECTION).
+            defaultRank(RanksManager.MEMBER_RANK).
+            clickHandler(new CycleClick("WILD_STACKER_SPAWNER_ACCESS",
                 RanksManager.VISITOR_RANK,
                 RanksManager.OWNER_RANK)).
             build();

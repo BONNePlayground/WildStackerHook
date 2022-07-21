@@ -21,12 +21,22 @@ import world.bentobox.bentobox.api.flags.FlagListener;
  */
 public class BlockInteractListener extends FlagListener
 {
+    /**
+     * This is just an GUI protector.
+     * @param event PlayerInteractEvent that is triggered.
+     */
     @EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = true)
-    public void onPlayerInteract(PlayerInteractEvent event)
+    public void onPlayerGUIInteract(PlayerInteractEvent event)
     {
         if (event.getClickedBlock() == null)
         {
             // Ignore clicking in air.
+            return;
+        }
+
+        if (event.getClickedBlock().getType() != Material.CAULDRON &&
+            event.getClickedBlock().getType() != Material.SPAWNER)
+        {
             return;
         }
 
@@ -44,7 +54,9 @@ public class BlockInteractListener extends FlagListener
             return;
         }
 
-        if (WildStackerAPI.getStackedBarrel(event.getClickedBlock()) == null)
+        if (event.getClickedBlock().getType() == Material.CAULDRON &&
+            (WildStackerAPI.getStackedBarrel(event.getClickedBlock()) == null ||
+                WildStackerAPI.getStackedBarrel(event.getClickedBlock()).getDisplayBlock() == null))
         {
             // Ignore non-stacked blocks
             return;
@@ -60,5 +72,72 @@ public class BlockInteractListener extends FlagListener
         // Use BentoBox flag processing system to validate usage.
         // Technically not necessary as internally it should be cancelled by BentoBox.
         event.setCancelled(!this.checkIsland(event, player, player.getLocation(), WildStackerHookAddon.WILD_STACKER_GUI));
+    }
+
+
+    /**
+     * This is just a Barrel protector.
+     * @param event PlayerInteractEvent that is triggered.
+     */
+    @EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = true)
+    public void onPlayerBarrelInteract(PlayerInteractEvent event)
+    {
+        if (event.getClickedBlock() == null)
+        {
+            // Ignore clicking in air.
+            return;
+        }
+
+        if (event.getClickedBlock().getType() != Material.CAULDRON)
+        {
+            // Ignore clicking on stacked spawner
+            return;
+        }
+
+        if (WildStackerAPI.getStackedBarrel(event.getClickedBlock()) == null ||
+            WildStackerAPI.getStackedBarrel(event.getClickedBlock()).getDisplayBlock() == null)
+        {
+            // Ignore non-stacked blocks
+            return;
+        }
+
+        Player player = event.getPlayer();
+
+        // Use BentoBox flag processing system to validate usage.
+        // Technically not necessary as internally it should be cancelled by BentoBox.
+        event.setCancelled(!this.checkIsland(event, player, player.getLocation(), WildStackerHookAddon.WILD_STACKER_BARREL_ACCESS));
+    }
+
+
+    /**
+     * This is just a Spawner protector.
+     * @param event PlayerInteractEvent that is triggered.
+     */
+    @EventHandler(priority = EventPriority.NORMAL, ignoreCancelled = true)
+    public void onPlayerSpawnerInteract(PlayerInteractEvent event)
+    {
+        if (event.getClickedBlock() == null)
+        {
+            // Ignore clicking in air.
+            return;
+        }
+
+        if (event.getClickedBlock().getType() != Material.SPAWNER)
+        {
+            // Ignore non-spawner clicks.
+            return;
+        }
+
+        if (WildStackerAPI.getStackedBarrel(event.getClickedBlock()) == null)
+        {
+            // Ignore non-stacked blocks
+            return;
+        }
+
+        Player player = event.getPlayer();
+
+        // Use BentoBox flag processing system to validate usage.
+        // Technically not necessary as internally it should be cancelled by BentoBox.
+        event.setCancelled(!this.checkIsland(event, player, player.getLocation(), WildStackerHookAddon.WILD_STACKER_SPAWNER_ACCESS));
     }
 }

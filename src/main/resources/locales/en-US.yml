@@ -7,7 +7,26 @@ protection:
       description: |-
         &a Select who can access
         &a WildStacker GUI.
-      icon:  WRITEN_BOOK
+      icon:  WRITTEN_BOOK
+      hint: "&c You do not have access to the GUI"
+    # This flag allows to switch which island member group can remove and add items to the sacked barrel.
+    WILD_STACKER_BARREL_ACCESS:
+      name: "WildStacker Barrel Permission"
+      description: |-
+        &a Select who can add/remove
+        &a items from WildStacker
+        &a barrels.
+      icon: BARREL
+      hint: "&c You do not have access to the stacked blocks"
+    # This flag allows to switch which island member group can remove and add stacked spawners
+    WILD_STACKER_SPAWNER_ACCESS:
+      name: "WildStacker Spawner Permission"
+      description: |-
+        &a Select who can add/remove
+        &a stacked spawners from
+        &a WildStacker.
+      icon: SPAWNER
+      hint: "&c You do not have access to the stacked spawners"
     # This is a parent flag for WildStacker plugin.
     WILD_STACKER:
       name: "WildStacker"
@@ -39,7 +58,7 @@ protection:
       hint: "Entity stacking disabled"
       icon: SKELETON_SKULL
     # This flag allows toggle spawner stacking on island.
-     WILD_STACKER_SPAWNERS:
+    WILD_STACKER_SPAWNERS:
       name: "Spawner Stacking"
       description: |-
         &a Toggles spawner stacking
