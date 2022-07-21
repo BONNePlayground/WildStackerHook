@@ -50,7 +50,7 @@
 		<!-- More visible way how to change dependency versions -->
 		<spigot.version>1.17-R0.1-SNAPSHOT</spigot.version>
 		<bentobox.version>1.17.1</bentobox.version>
-		<wildstacker.version>latest</wildstacker.version>
+		<wildstacker.version>3.8.0</wildstacker.version>
 		<!-- Revision variable removes warning about dynamic version -->
 		<revision>${build.version}-SNAPSHOT</revision>
 		<!-- This allows to change between versions and snapshots. -->
@@ -127,7 +127,7 @@
 			<version>${bentobox.version}</version>
 			<scope>provided</scope>
 		</dependency>
-		<!-- RoseStacker -->
+		<!-- WildStacker -->
 		<dependency>
 			<groupId>com.bgsoftware</groupId>
 			<artifactId>WildStackerAPI</artifactId>
